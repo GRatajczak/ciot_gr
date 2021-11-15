@@ -1,0 +1,16 @@
+{
+  "name": "cloud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Grzegorz Ratajczak",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "mssql": "^7.2.1",
+    "mssql-connection-string": "^0.3.2"
+  },
+  "devDependencies": {}
+}
