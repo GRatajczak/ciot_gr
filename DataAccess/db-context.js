@@ -40,7 +40,10 @@ class PeopleDbContext {
         this.log("addPerson function - run")
         const connection = await new sql.ConnectionPool(this.config).connect();
         const request = new sql.Request(connection);
-        const result = await request.query('Insert into People values ( '+ options.name +', '+ options.surname +', '+ options.phone +');');
+        this.log(options.name);
+        this.log(options.surname);
+        this.log(options.phone);
+        const result = await request.query(`Insert into People values ( '${options.name}', '${options.surname}', '${options.phone}');`);
         this.log("addPerson function - done")
         return result.recordset;
     }

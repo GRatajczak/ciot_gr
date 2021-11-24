@@ -18,8 +18,8 @@ const functionWrapper = async function (context, req, action) {
     }
 
     context.res = {
-        status: status,
-        body: body
+        status,
+        body
     }
 }
 

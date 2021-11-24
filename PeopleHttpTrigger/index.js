@@ -7,14 +7,18 @@ module.exports = async function (context, req) {
         const connectionString = process.env['PeopleDb'];
         const peopleDb = new PeopleDbContext(connectionString, context.log);
         if(req.method === 'GET'){
-
-            body.people = await peopleDb.getPeople();
-
+            if(req.query.id){
+                body.people = await peopleDb.getPerson(req.query.id);
+            }else {
+                body.people = await peopleDb.getPeople();
+            }
         }else if(req.method === 'POST'){
-            context.log(req);
+            context.log(req.body);
 
             body.people = await peopleDb.addPerson(req.body.newperson);
-            
+        }else if(req.method === 'DELETE'){
+            body.people = await peopleDb.removePerson(req.query.id);
         }
+        
     });
 };
